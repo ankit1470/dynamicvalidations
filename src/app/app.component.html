@@ -1,0 +1,15 @@
+<form [formGroup]="detailsForm">
+  <input type="text" placeholder="enter your name" formControlName="name">
+  <br>
+  <span style="color:red" *ngIf="this.detailsForm.get('name').hasError('required')&&this.detailsForm.get('name').touched"  >Enter your name</span>
+    <br>
+  Are you an Adult:<input type="checkbox" (change)="check($event.target)" formControlName="check">
+  <br>
+  <input *ngIf="show" type="text" placeholder="enter your age" formControlName="age">
+  <br>
+  <span style="color:red" *ngIf="this.detailsForm.get('age').hasError('required')&&this.detailsForm.get('age').touched">Enter your age</span>
+  <br>
+  <button (click)="onSubmit()">SUBMIT</button>
+  <p>{{submit}}</p>
+</form>
+<router-outlet></router-outlet>
